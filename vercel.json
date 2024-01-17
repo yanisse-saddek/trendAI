@@ -5,5 +5,9 @@
         "memory": 512
       }
     },
-    "version": 2
+    "version": 2,
+    "builds": [
+      { "src": "schedule.js", "use": "@vercel/node" }
+    ]
   }
+  
