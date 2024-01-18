@@ -100,5 +100,4 @@ const executeScript = async () => {
     return image;
 }
 
-    
-module.exports = executeScript
+export { executeScript };
