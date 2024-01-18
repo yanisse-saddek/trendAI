@@ -2,10 +2,9 @@ import OpenAI from "openai";
 import axios from 'axios';
 import dotenv from 'dotenv';
 import SocialPost from 'social-post-api';
-import express from 'express';
 
-const app = express();
 dotenv.config();
+
 const social = new SocialPost(process.env.AYRSHARE_KEY);
 
 const openai = new OpenAI({
@@ -95,10 +94,11 @@ const uploadImage = async (url) => {
     }
 }
   
-app.get('/', async (req, res) => {
-    res.send(await generatePrompt());
-});
+const executeScript = async () => {
+    const image = await generatePrompt();
+    console.log(image);
+    return image;
+}
 
-app.listen(3000, () => {
-    console.log('Server started on port 3000');
-});
+    
+module.exports = executeScript
