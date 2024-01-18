@@ -22,6 +22,7 @@ try{
   });
 
   uploadImage(image.data[0].url);
+    return image.data[0].url;
 
 } catch (error) {
     console.error('Erreur lors de la génération de l\'image avec OpenAI :', error);
@@ -72,8 +73,7 @@ const generatePrompt = async () => {
           });
         
           console.log(completion.choices[0].message.content);
-
-        generateImage(completion.choices[0].message.content);
+        return {url: await generateImage(completion.choices[0].message.content)}
 
       
     } catch (error) {
@@ -95,9 +95,8 @@ const uploadImage = async (url) => {
     }
 }
   
-app.get('/', (req, res) => {
-    generatePrompt();
-    res.send('Hello World!');
+app.get('/', async (req, res) => {
+    res.send(await generatePrompt());
 });
 
 app.listen(3000, () => {
