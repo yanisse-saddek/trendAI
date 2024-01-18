@@ -2,6 +2,9 @@
     "version": 2,
     "builds": [
       { "src": "schedule.js", "use": "@vercel/node" }
+    ],
+    "schedule": [
+      "56 12 * * *"
     ]
   }
   
