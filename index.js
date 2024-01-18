@@ -97,6 +97,7 @@ const uploadImage = async (url) => {
   
 app.get('/', (req, res) => {
     generatePrompt();
+    res.send('Hello World!');
 });
 
 app.listen(3000, () => {
