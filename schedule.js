@@ -1,9 +1,9 @@
 import { executeScript } from './index.js';
 
-import * as schedule from 'node-schedule';
+function runEvery24Hours() {
+   executeScript();
+}
 
-schedule.scheduleJob('30 18 * * *', () => {
-    executeScript();
-});
+runEvery24Hours();
 
-
+setInterval(runEvery24Hours, 86400000);
