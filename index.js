@@ -100,4 +100,10 @@ const executeScript = async () => {
     return image;
 }
 
-export { executeScript };
+function runEvery24Hours() {
+    executeScript();
+ }
+ 
+ runEvery24Hours();
+ 
+ setInterval(runEvery24Hours, 86400000);
