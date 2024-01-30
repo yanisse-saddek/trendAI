@@ -100,6 +100,7 @@ const executeScript = async () => {
     return image;
 }
 
+
 function runEvery24Hours() {
     executeScript();
  }
